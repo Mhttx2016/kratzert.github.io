@@ -2,7 +2,7 @@
 layout: "post"
 title: " the backward pass through Batch Normalization Layer"
 date: "2016-02-12 13:54"
-excerpt: "An explanation of gradient flow through BatchNorm-Layer following the circuit representation learned in Standfords class CS231n."
+excerpt: "test An explanation of gradient flow through BatchNorm-Layer following the circuit representation learned in Standfords class CS231n."
 comments: true
 ---
 
