@@ -5,7 +5,7 @@
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
 url: "https://mhttx.github.io"
-baseurl: "/Mhttx2016"
+baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
 #url: "http://username.github.io/projectname"
@@ -57,7 +57,7 @@ avatar: "/img/avatar.jpg"
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: Frederik Kratzert
+  name: Mhttx
   email: "mhttxgm@gmail.com"
   github: https://github.com/Mhttx2016
 #   twitter: fkratzert
