@@ -4,8 +4,8 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-url: "https://kratzert.github.io"
-baseurl: ""
+url: "https://mhttx.github.io"
+baseurl: "/Mhttx2016"
 
 # If you are building a GitHub project page then use these settings:
 #url: "http://username.github.io/projectname"
@@ -14,10 +14,10 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: Flair of Machine Learning
+title: Mhttx
 
 # Short description of your site
-description: A virtual proof that name is awesome!
+description: Mhttx's Blog
 
 # --- Navigation bar options --- #
 
@@ -58,32 +58,32 @@ avatar: "/img/avatar.jpg"
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
   name: Frederik Kratzert
-  email: "f.kratzert@gmail.com"
-  github: kratzert
-  twitter: fkratzert
-  linkedin: frederik-kratzert-226a33148
-  xing: yourname
-  stackoverflow: yourlink
+  email: "mhttxgm@gmail.com"
+  github: https://github.com/Mhttx2016
+#   twitter: fkratzert
+#   linkedin: frederik-kratzert-226a33148
+#   xing: yourname
+#   stackoverflow: yourlink
 
 
 # Select which links to show in the footer
 footer-links-active:
-  rss: true
+  rss: false
   facebook: false
   email: true
-  twitter: true
-  github: true
-  linkedin: true
+  twitter: false
+  github: false
+  linkedin: false
   xing: false
   stackoverflow: false
 
 
 # Select which share links to show in posts
 share-links-active:
-  twitter: true
-  facebook: true
+  twitter: false
+  facebook: false
   google: false
-  linkedin: true
+  linkedin: false
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
