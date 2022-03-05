@@ -1,5 +1,5 @@
 ---
-layout: "post"
+layout: "page"
 title: "Projects"
 date: "2022-03-04 14:16"
 excerpt: "An overview of freely available learning content on various topics (though mainly machine learning)."
