@@ -25,9 +25,9 @@ description: Mhttx's Blog
 # List of links in the navigation bar
 navbar-links:
   Home: "https://mhttx2016.github.io"
-  About Me: "aboutme"
   Open Learning: "openlearning"
   Projects: "projects"
+  About Me: "aboutme"
   
 #  Resources:
 #    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
