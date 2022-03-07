@@ -7,21 +7,21 @@
 
 ### InstDisc:Unsupervised Feature Learning via Non-Parametric Instance Discrimination
 
-![image-20220306164622407](/Users/mhttx/Library/Application Support/typora-user-images/image-20220306164622407.png)
+![image-20220306164622407](../images/Visual Self-supervised Learning.assets/image-20220306164622407.png)
 
 - **Motivation:**learn a good feature representation that captures apparent similarity among instances, instead of classes,
 
 - **How:**
   - memory bank store reprsentation
   - NCE loss + Proximal Regularization
-  - <img src="/Users/mhttx/Library/Application Support/typora-user-images/image-20220306165410633.png" alt="image-20220306165410633" style="zoom:50%;" />
-  - <img src="/Users/mhttx/Library/Application Support/typora-user-images/image-20220306165250790.png" alt="image-20220306165250790" style="zoom:50%;" />
+  - <img src="../images/Visual Self-supervised Learning.assets/image-20220306165410633.png" alt="image-20220306165410633" style="width:50%;" />
+  - <img src="../images/Visual Self-supervised Learning.assets/image-20220306165250790.png" alt="image-20220306165250790" style="width:50%;" />
 - Adv vs Disadv
   - Memory bank update every epoch
 
 ### CPC: Representation Learning withContrastive Predictive Coding
 
-<img src="/Users/mhttx/Library/Application Support/typora-user-images/image-20220306171843768.png" alt="image-20220306171843768" style="zoom:50%;" />
+<img src="../images/Visual Self-supervised Learning.assets/image-20220306171843768.png" alt="image-20220306171843768" style="width:50%;" />
 
 - Motivation:
 
@@ -34,7 +34,7 @@
 
   - When predicting future information we instead encode the target x (future) and context c (present) into a compact distributed vector representations (via non-linear learned mappings) in a way that maximally preserves the mutual information of the original signals x and c defined as
 
-    <img src="/Users/mhttx/Library/Application Support/typora-user-images/image-20220306172459042.png" alt="image-20220306172459042" style="zoom:50%;" />
+    <img src="../images/Visual Self-supervised Learning.assets/image-20220306172459042.png" alt="image-20220306172459042" style="width:50%;" />
 
   - we do not predict future observations $x_{t+k}$ directly with a generative model $p_k(x_{t+k}|c_t)$. Instead we model a density ratio which preserves the mutual information between $x_{t+k}$ and $c_t$
 
@@ -44,7 +44,7 @@
 
 ### CMC:Contrastive Multiview Coding
 
-<img src="/Users/mhttx/Library/Application Support/typora-user-images/image-20220306175348574.png" alt="image-20220306175348574" style="zoom:50%;" />
+<img src="../images/Visual Self-supervised Learning.assets/image-20220306175348574.png" alt="image-20220306175348574" style="width:50%;" />
 
 - Motivation
 
@@ -60,7 +60,7 @@
 
 ### MoCo
 
-<img src="/Users/mhttx/Library/Application Support/typora-user-images/image-20220306181423380.png" alt="image-20220306181423380" style="zoom:50%;" />
+<img src="../images/Visual Self-supervised Learning.assets/image-20220306181423380.png" alt="image-20220306181423380" style="width:50%;" />
 
 - we hypothesize that it is desirable to build dictionaries that are: **(i) large and (ii) consistent** as they evolve during training. Intuitively, a larger dictionary may better sample the underlying continuous, highdimensional visual space, while the keys in the dictionary should be represented by the same or similar encoder so that their comparisons to the query are consistent.
 - Shuffling BN：The model appears to “cheat” the pretext task and easily finds a low-loss solution. This is possibly because the intra-batch communication among samples (caused by BN) leaks information.
@@ -68,7 +68,7 @@
 
 ### SimCLR
 
-<img src="/Users/mhttx/Library/Application Support/typora-user-images/image-20220306184747940.png" alt="image-20220306184747940" style="zoom:50%;" />
+<img src="../images/Visual Self-supervised Learning.assets/image-20220306184747940.png" alt="image-20220306184747940" style="width:25%;" />
 
 - In-batch negative
 - composition of data augmentations
@@ -83,18 +83,18 @@
 
 - **L2 normalization** (i.e. cosine similarity) along with temperature effectively weights different examples, and an **appropriate temperature** can help the model learn from **hard negatives**; and 2) unlike cross-entropy, other objective functions do not weigh the negatives by their relative hardness.
 
-  <img src="/Users/mhttx/Library/Application Support/typora-user-images/image-20220306184454609.png" alt="image-20220306184454609" style="zoom:50%;" />
+  <img src="../images/Visual Self-supervised Learning.assets/image-20220306184454609.png" alt="image-20220306184454609" style="width:50%;" />
 
 ### SwAV:Unsupervised Learning of Visual Features by Contrasting Cluster Assignments
 
-<img src="/Users/mhttx/Library/Application Support/typora-user-images/image-20220306195148828.png" alt="image-20220306195148828" style="zoom:50%;" />
+<img src="../images/Visual Self-supervised Learning.assets/image-20220306195148828.png" alt="image-20220306195148828" style="width:50%;" />
 
 - Motivation:
   - SwAV, that takes advantage of contrastive methods without requiring to compute pairwise comparisons. Specifically, our method simultaneously clusters the data while **enforcing consistency between cluster assignments produced for different augmentations (or “views”) of the same image**, instead of comparing features directly as in contrastive learning.
 
 - How
 
-  <img src="/Users/mhttx/Library/Application Support/typora-user-images/image-20220306201843121.png" alt="image-20220306201843121" style="zoom:50%;" />
+  <img src="../images/Visual Self-supervised Learning.assets/image-20220306201843121.png" alt="image-20220306201843121" style="width:50%;" />
 
   - Multi-Crop
   - 
@@ -105,15 +105,15 @@
 
 ### BYOL
 
-<img src="/Users/mhttx/Library/Application Support/typora-user-images/image-20220306220817154.png" alt="image-20220306220817154" style="zoom:50%;" />
+<img src="../images/Visual Self-supervised Learning.assets/image-20220306220817154.png" alt="image-20220306220817154" style="width:50%;" />
 
-<img src="../../../Library/Application Support/typora-user-images/image-20220306223236207.png" alt="image-20220306223236207" style="zoom:50%;" />
+<img src="../images/Visual Self-supervised Learning.assets/image-20220306223236207.png" alt="image-20220306223236207" style="width:50%;" />
 
-<img src="../../../Library/Application Support/typora-user-images/image-20220306223304632.png" alt="image-20220306223304632" style="zoom:50%;" />
+<img src="../images/Visual Self-supervised Learning.assets/image-20220306223304632.png" alt="image-20220306223304632" style="width:50%;" />
 
 ### SimSiam:Exploring Simple Siamese Representation Learning
 
-<img src="../../../Library/Application Support/typora-user-images/image-20220306225205266.png" alt="image-20220306225205266" style="zoom:50%;" />
+<img src="../images/Visual Self-supervised Learning.assets/image-20220306225205266.png" alt="image-20220306225205266" style="width:50%;" />
 
 - Motivation:that collapsing solutions do exist for the loss and structure, but a **stop-gradient** operation plays an essential role in preventing collapsing.
 
@@ -170,4 +170,4 @@ $$
 
 ### DINO
 
-<img src="../../../Library/Application Support/typora-user-images/image-20220307210626613.png" alt="image-20220307210626613" style="zoom:50%;" />
+<img src="../images/Visual Self-supervised Learning.assets/image-20220307210626613.png" alt="image-20220307210626613" style="width:50%;" />
