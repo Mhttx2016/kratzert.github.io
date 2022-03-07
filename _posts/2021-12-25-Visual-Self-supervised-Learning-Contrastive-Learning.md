@@ -142,8 +142,9 @@
   - M步：优化$\eta_x$ :给定每个$x$并且固定$\theta=\theta_t$优化$\mathcal L$（求导）:
 
   $$
-  \eta_x^t=\arg \min_{\eta_x}\mathbb E_{\mathcal T}[||\mathcal F_{\theta^t}(\mathcal T(x))-\eta_x||^2_2]=\mathbb E_{\mathcal T}[\mathcal F_{\theta^t}(\mathcal T(x))]
+   <img src="http://latex.codecogs.com/svg.latex?\eta_x^t=\arg&space;\min_{\eta_x}\mathbb&space;E_{\mathcal&space;T}[||\mathcal&space;F_{\theta^t}(\mathcal&space;T(x))-\eta_x||^2_2]=\mathbb&space;E_{\mathcal&space;T}[\mathcal&space;F_{\theta^t}(\mathcal&space;T(x))]" title="http://latex.codecogs.com/svg.latex?\eta_x^t=\arg \min_{\eta_x}\mathbb E_{\mathcal T}[||\mathcal F_{\theta^t}(\mathcal T(x))-\eta_x||^2_2]=\mathbb E_{\mathcal T}[\mathcal F_{\theta^t}(\mathcal T(x))]" />
   $$
+
 
   说明$\eta_x$的最优解是$x$经过augmentation后表征的期望(关于augmentation)
 
