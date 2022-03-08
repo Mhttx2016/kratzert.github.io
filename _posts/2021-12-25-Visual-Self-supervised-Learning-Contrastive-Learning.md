@@ -6,7 +6,7 @@
 ### InstDisc:Unsupervised Feature Learning via Non-Parametric Instance Discrimination
 
 <p align="center">
-<img src="../images/Visual-Self-supervised-Learning-assets/image-20220306164622407.png" alt="image-20220306164622407" style="width:75%;" />
+<img src="/images/Visual-Self-supervised-Learning-assets/image-20220306164622407.png" alt="image-20220306164622407" style="width:75%;" />
 </p>
 
 - **Motivation:**learn a good feature representation that captures apparent similarity among instances, instead of classes,
