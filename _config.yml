@@ -27,7 +27,7 @@ navbar-links:
   Home: "https://mhttx2016.github.io"
   Open Learning: "openlearning"
   Projects: "projects"
-  About Me: "aboutme"
+#   About Me: "aboutme"
   
 #  Resources:
 #    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
