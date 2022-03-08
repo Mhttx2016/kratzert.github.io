@@ -14,14 +14,14 @@
 - **How:**
   - memory bank store reprsentation
   - NCE loss + Proximal Regularization
-  - <img src="../images/Visual-Self-supervised-Learning-assets/image-20220306165410633.png" alt="image-20220306165410633" style="width:25%;" />
-  - <img src="../images/Visual-Self-supervised-Learning-assets/image-20220306165250790.png" alt="image-20220306165250790" style="width:50%;" />
+  - <img src="/images/Visual-Self-supervised-Learning-assets/image-20220306165410633.png" alt="image-20220306165410633" style="width:25%;" />
+  - <img src="/images/Visual-Self-supervised-Learning-assets/image-20220306165250790.png" alt="image-20220306165250790" style="width:50%;" />
 - Adv vs Disadv
   - Memory bank update every epoch
 
 ### CPC: Representation Learning withContrastive Predictive Coding
 <p align="center">
-<img src="../images/Visual-Self-supervised-Learning-assets/image-20220306171843768.png" alt="image-20220306171843768" style="width:50%;" />
+<img src="/images/Visual-Self-supervised-Learning-assets/image-20220306171843768.png" alt="image-20220306171843768" style="width:50%;" />
 </p>
 
 - Motivation:
@@ -35,7 +35,7 @@
 
   - When predicting future information we instead encode the target x (future) and context c (present) into a compact distributed vector representations (via non-linear learned mappings) in a way that maximally preserves the mutual information of the original signals x and c defined as
 
-    <img src="../images/Visual-Self-supervised-Learning-assets/image-20220306172459042.png" alt="image-20220306172459042" style="width:25%;" />
+    <img src="/images/Visual-Self-supervised-Learning-assets/image-20220306172459042.png" alt="image-20220306172459042" style="width:25%;" />
 
   - we do not predict future observations <img src="http://latex.codecogs.com/svg.latex?x_{t&plus;k}" title="http://latex.codecogs.com/svg.latex?x_{t+k}" /> directly with a generative model <img src="http://latex.codecogs.com/svg.latex?p_k(x_{t&plus;k}|c_t)" title="http://latex.codecogs.com/svg.latex?p_k(x_{t+k}|c_t)" />. Instead we model a density ratio which preserves the mutual information between <img src="http://latex.codecogs.com/svg.latex?x_{t&plus;k}" title="http://latex.codecogs.com/svg.latex?x_{t+k}" /> and <img src="http://latex.codecogs.com/svg.latex?c_t" title="http://latex.codecogs.com/svg.latex?c_t" />
 
@@ -45,7 +45,7 @@
 
 ### CMC:Contrastive Multiview Coding
 <p align="center">
-<img src="../images/Visual-Self-supervised-Learning-assets/image-20220306175348574.png" alt="image-20220306175348574" style="width:50%;" />
+<img src="/images/Visual-Self-supervised-Learning-assets/image-20220306175348574.png" alt="image-20220306175348574" style="width:50%;" />
 </p>
 - Motivation
 
@@ -61,7 +61,7 @@
 
 ### MoCo
 <p align="center">
-<img src="../images/Visual-Self-supervised-Learning-assets/image-20220306181423380.png" alt="image-20220306181423380" style="width:100%;" />
+<img src="/images/Visual-Self-supervised-Learning-assets/image-20220306181423380.png" alt="image-20220306181423380" style="width:100%;" />
 </p>
 - we hypothesize that it is desirable to build dictionaries that are: **(i) large and (ii) consistent** as they evolve during training. Intuitively, a larger dictionary may better sample the underlying continuous, highdimensional visual space, while the keys in the dictionary should be represented by the same or similar encoder so that their comparisons to the query are consistent.
 - Shuffling BN：The model appears to “cheat” the pretext task and easily finds a low-loss solution. This is possibly because the intra-batch communication among samples (caused by BN) leaks information.
@@ -69,7 +69,7 @@
 
 ### SimCLR
 <p align="center">
-<img src="../images/Visual-Self-supervised-Learning-assets/image-20220306184747940.png" alt="image-20220306184747940" style="width:50%;" />
+<img src="/images/Visual-Self-supervised-Learning-assets/image-20220306184747940.png" alt="image-20220306184747940" style="width:50%;" />
 </p>
 
 - In-batch negative
@@ -85,19 +85,19 @@
 
 - **L2 normalization** (i.e. cosine similarity) along with temperature effectively weights different examples, and an **appropriate temperature** can help the model learn from **hard negatives**; and 2) unlike cross-entropy, other objective functions do not weigh the negatives by their relative hardness.
 <p align="center">
-  <img src="../images/Visual-Self-supervised-Learning-assets/image-20220306184454609.png" alt="image-20220306184454609" style="width:100%;" />
+  <img src="/images/Visual-Self-supervised-Learning-assets/image-20220306184454609.png" alt="image-20220306184454609" style="width:100%;" />
   </p>
 
 ### SwAV:Unsupervised Learning of Visual Features by Contrasting Cluster Assignments
 <p align="center">
-<img src="../images/Visual-Self-supervised-Learning-assets/image-20220306195148828.png" alt="image-20220306195148828" style="width:75%;" />
+<img src="/images/Visual-Self-supervised-Learning-assets/image-20220306195148828.png" alt="image-20220306195148828" style="width:75%;" />
 </p>
 - Motivation:
   - SwAV, that takes advantage of contrastive methods without requiring to compute pairwise comparisons. Specifically, our method simultaneously clusters the data while **enforcing consistency between cluster assignments produced for different augmentations (or “views”) of the same image**, instead of comparing features directly as in contrastive learning.
 
 - How
 
-  <img src="../images/Visual-Self-supervised-Learning-assets/image-20220306201843121.png" alt="image-20220306201843121" style="width:50%;" />
+  <img src="/images/Visual-Self-supervised-Learning-assets/image-20220306201843121.png" alt="image-20220306201843121" style="width:50%;" />
 
   - Multi-Crop
   - 
@@ -108,15 +108,15 @@
 
 ### BYOL
 <p align="center">
-<img src="../images/Visual-Self-supervised-Learning-assets/image-20220306220817154.png" alt="image-20220306220817154" style="width:75%;" />
+<img src="/images/Visual-Self-supervised-Learning-assets/image-20220306220817154.png" alt="image-20220306220817154" style="width:75%;" />
 </p>
-<img src="../images/Visual-Self-supervised-Learning-assets/image-20220306223236207.png" alt="image-20220306223236207" style="width:50%;" />
+<img src="/images/Visual-Self-supervised-Learning-assets/image-20220306223236207.png" alt="image-20220306223236207" style="width:50%;" />
 
-<img src="../images/Visual-Self-supervised-Learning-assets/image-20220306223304632.png" alt="image-20220306223304632" style="width:25%;" />
+<img src="/images/Visual-Self-supervised-Learning-assets/image-20220306223304632.png" alt="image-20220306223304632" style="width:25%;" />
 
 ### SimSiam:Exploring Simple Siamese Representation Learning
 <p align="center">
-<img src="../images/Visual-Self-supervised-Learning-assets/image-20220306225205266.png" alt="image-20220306225205266" style="width:50%;" />
+<img src="/images/Visual-Self-supervised-Learning-assets/image-20220306225205266.png" alt="image-20220306225205266" style="width:50%;" />
 </p>
 - Motivation:that collapsing solutions do exist for the loss and structure, but a **stop-gradient** operation plays an essential role in preventing collapsing.
 
@@ -163,5 +163,5 @@
 
 ### DINO
 <p align="center">
-<img src="../images/Visual-Self-supervised-Learning-assets/image-20220307210626613.png" alt="image-20220307210626613" style="width:50%;" />
+<img src="/images/Visual-Self-supervised-Learning-assets/image-20220307210626613.png" alt="image-20220307210626613" style="width:50%;" />
 </p>
