@@ -83,7 +83,7 @@
 - Large batch size:
 - nonlinear projection head:
 
-​	We conjecture that the importance of **using the representation before the nonlinear projection is due to loss of information induced by the contrastive loss**. **In particular, $z = g(h)$ is trained to be invariant to data transformation. Thus, $g$ can remove information that may be useful for the downstream task, such as the color or orientation of objects**. By leveraging the nonlinear transformation $g(\cdot)$, more information can be formed and maintained in $h$.
+​	We conjecture that the importance of **using the representation before the nonlinear projection is due to loss of information induced by the contrastive loss**. **In particular, <img src="http://latex.codecogs.com/svg.latex?z&space;=&space;g(h)" title="http://latex.codecogs.com/svg.latex?z = g(h)" /> is trained to be invariant to data transformation. Thus, <img src="http://latex.codecogs.com/svg.latex?g" title="http://latex.codecogs.com/svg.latex?g" /> can remove information that may be useful for the downstream task, such as the color or orientation of objects**. By leveraging the nonlinear transformation <img src="http://latex.codecogs.com/svg.latex?g(\cdot)" title="http://latex.codecogs.com/svg.latex?g(\cdot)" />, more information can be formed and maintained in <img src="http://latex.codecogs.com/svg.latex?h" title="http://latex.codecogs.com/svg.latex?h" />.
 
 - **L2 normalization** (i.e. cosine similarity) along with temperature effectively weights different examples, and an **appropriate temperature** can help the model learn from **hard negatives**; and 2) unlike cross-entropy, other objective functions do not weigh the negatives by their relative hardness.
 <p align="center">
