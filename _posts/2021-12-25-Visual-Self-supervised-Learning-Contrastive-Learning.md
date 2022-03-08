@@ -1,3 +1,10 @@
+---
+layout: "post"
+title: "Visual Self-supervised Learning(Contrastive Learning)"
+date: "2021.12.25"
+excerpt: "Contrastive Learning"
+comments: true
+---
 # Visual Self-supervised Learning(Contrastive Learning)
 
 
