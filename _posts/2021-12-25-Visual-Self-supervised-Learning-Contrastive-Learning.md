@@ -125,52 +125,41 @@
 - SimSiam as EM algorithm
 
   考虑以下损失函数:
-  $$
-  \mathcal L=\mathbb E_{x, \mathcal T}\left[||\mathcal F_\theta(\mathcal T(x))-\eta_x||^2_2\right]
-  $$
-  $\eta_x$是图片$x$的表示，是一组可学习的参数，$\theta$是网络参数。我们采用EM算法优化这两组参数。目标是:
-  $$
-  \theta^*,\eta^*=\min \mathcal L(\theta, \eta)
-  $$
+  <img src="http://latex.codecogs.com/svg.latex?\mathcal&space;L=\mathbb&space;E_{x,&space;\mathcal&space;T}\left[||\mathcal&space;F_\theta(\mathcal&space;T(x))-\eta_x||^2_2\right]" title="http://latex.codecogs.com/svg.latex?\mathcal L=\mathbb E_{x, \mathcal T}\left[||\mathcal F_\theta(\mathcal T(x))-\eta_x||^2_2\right]" />
+  <img src="http://latex.codecogs.com/svg.latex?\eta_x" title="http://latex.codecogs.com/svg.latex?\eta_x" />是图片<img src="http://latex.codecogs.com/svg.latex?x" title="http://latex.codecogs.com/svg.latex?x" />的表示，是一组可学习的参数，<img src="http://latex.codecogs.com/svg.latex?\theta" title="http://latex.codecogs.com/svg.latex?\theta" />是网络参数。我们采用EM算法优化这两组参数。目标是:
+  
+  <img src="http://latex.codecogs.com/svg.latex?\theta^*,\eta^*=\min&space;\mathcal&space;L(\theta,&space;\eta)" title="http://latex.codecogs.com/svg.latex?\theta^*,\eta^*=\min \mathcal L(\theta, \eta)" />
+  
   我们交替优化:
-  $$
-  \theta^t \leftarrow \arg \min_\theta \mathcal L(\theta, \eta^{t-1}) \\
-  \eta^t \leftarrow \arg \min_\eta \mathcal L(\theta^t, \eta)
-  $$
+  
+  <img src="http://latex.codecogs.com/svg.latex?\theta^t&space;\leftarrow&space;\arg&space;\min_\theta&space;\mathcal&space;L(\theta,&space;\eta^{t-1})" title="http://latex.codecogs.com/svg.latex?\theta^t \leftarrow \arg \min_\theta \mathcal L(\theta, \eta^{t-1})" />和<img src="http://latex.codecogs.com/svg.latex?\eta^t&space;\leftarrow&space;\arg&space;\min_\eta&space;\mathcal&space;L(\theta^t,&space;\eta)" title="http://latex.codecogs.com/svg.latex?\eta^t \leftarrow \arg \min_\eta \mathcal L(\theta^t, \eta)" />
+  
+  - E步：优化<img src="http://latex.codecogs.com/svg.latex?\theta" title="http://latex.codecogs.com/svg.latex?\theta" />：采用sgd优化<img src="http://latex.codecogs.com/svg.latex?\theta" title="http://latex.codecogs.com/svg.latex?\theta" /> 需要采用stop gradient防止梯度回传到<img src="http://latex.codecogs.com/svg.latex?\eta" title="http://latex.codecogs.com/svg.latex?\eta" />，因为<img src="http://latex.codecogs.com/svg.latex?\eta" title="http://latex.codecogs.com/svg.latex?\eta" />被视为常量
+  - M步：优化<img src="http://latex.codecogs.com/svg.latex?\eta_x" title="http://latex.codecogs.com/svg.latex?\eta_x" /> :给定每个x并且固定<img src="http://latex.codecogs.com/svg.latex?\theta=\theta_t" title="http://latex.codecogs.com/svg.latex?\theta=\theta_t" />优化<img src="http://latex.codecogs.com/svg.latex?\mathcal&space;L" title="http://latex.codecogs.com/svg.latex?\mathcal L" />（求导）:
+  
+    <img src="http://latex.codecogs.com/svg.latex?\eta_x^t=\arg&space;\min_{\eta_x}\mathbb&space;E_{\mathcal&space;T}[||\mathcal&space;F_{\theta^t}(\mathcal&space;T(x))-\eta_x||^2_2]=\mathbb&space;E_{\mathcal&space;T}[\mathcal&space;F_{\theta^t}(\mathcal&space;T(x))]" title="http://latex.codecogs.com/svg.latex?\eta_x^t=\arg \min_{\eta_x}\mathbb E_{\mathcal T}[||\mathcal F_{\theta^t}(\mathcal T(x))-\eta_x||^2_2]=\mathbb E_{\mathcal T}[\mathcal F_{\theta^t}(\mathcal T(x))]" />" />
 
-  - E步：优化$\theta$：采用sgd优化$\theta$ 需要采用stop gradient防止梯度回传到$\eta$，因为$\eta$被视为常量
-  - M步：优化$\eta_x$ :给定每个$x$并且固定$\theta=\theta_t$优化$\mathcal L$（求导）:
-
-  $$
-   <img src="http://latex.codecogs.com/svg.latex?\eta_x^t=\arg&space;\min_{\eta_x}\mathbb&space;E_{\mathcal&space;T}[||\mathcal&space;F_{\theta^t}(\mathcal&space;T(x))-\eta_x||^2_2]=\mathbb&space;E_{\mathcal&space;T}[\mathcal&space;F_{\theta^t}(\mathcal&space;T(x))]" title="http://latex.codecogs.com/svg.latex?\eta_x^t=\arg \min_{\eta_x}\mathbb E_{\mathcal T}[||\mathcal F_{\theta^t}(\mathcal T(x))-\eta_x||^2_2]=\mathbb E_{\mathcal T}[\mathcal F_{\theta^t}(\mathcal T(x))]" />
-  $$
-
-
-  说明$\eta_x$的最优解是$x$经过augmentation后表征的期望(关于augmentation)
+    说明<img src="http://latex.codecogs.com/svg.latex?\eta_x" title="http://latex.codecogs.com/svg.latex?\eta_x" />的最优解是<img src="http://latex.codecogs.com/svg.latex?x" title="http://latex.codecogs.com/svg.latex?x" />经过augmentation后表征的期望(关于augmentation)
 
 - One-step alternation
 
-  - 通过采样**一次**augmentation $\mathcal T'$对$\eta_x^t$估计：
-    $$
-    \eta_x^t=\mathcal F_{\theta^t}(\mathcal T'(x))
-    $$
+  - 通过采样**一次**augmentation <img src="http://latex.codecogs.com/svg.latex?\mathcal&space;T'" title="http://latex.codecogs.com/svg.latex?\mathcal T'" />对<img src="http://latex.codecogs.com/svg.latex?\eta_x^t" title="http://latex.codecogs.com/svg.latex?\eta_x^t" />估计：
+    <img src="http://latex.codecogs.com/svg.latex?\eta_x^t=\mathcal&space;F_{\theta^t}(\mathcal&space;T'(x))" title="http://latex.codecogs.com/svg.latex?\eta_x^t=\mathcal F_{\theta^t}(\mathcal T'(x))" />
 
-  - 对$\theta$优化,带入上式,采用sgd优化
-    $$
-    \theta^{t+1}=\arg \min \mathbb E_{x, \mathcal T}[||\mathcal F_{\theta}(\mathcal T'(x))-\eta_x^t||]
-    $$
+  - 对<img src="http://latex.codecogs.com/svg.latex?\theta" title="http://latex.codecogs.com/svg.latex?\theta" />优化,带入上式,采用sgd优化
+    <img src="http://latex.codecogs.com/svg.latex?\theta^{t&plus;1}=\arg&space;\min&space;\mathbb&space;E_{x,&space;\mathcal&space;T}[||\mathcal&space;F_{\theta}(\mathcal&space;T'(x))-\eta_x^t||]" title="http://latex.codecogs.com/svg.latex?\theta^{t+1}=\arg \min \mathbb E_{x, \mathcal T}[||\mathcal F_{\theta}(\mathcal T'(x))-\eta_x^t||]" />
 
 - Predictor
 
-​	predictor $h$是对$\mathbb E_{\mathcal T}[\mathcal F_{\theta^t}(\mathcal T(x))]$的估计：
-$$
-h^*(z_1) = \arg \min_{h(z_1)} \mathbb E_z[||h(z_1)-z_2||_2^2]=\mathbb E_z[z_2]=\mathbb E_{\mathcal T}[f(\mathcal T(x))]
-$$
-​	在单步优化中,$\mathbb E_{\mathcal T} [\cdot]$被忽略了，$h$视为对其的估计(Expectation over augmentations)，除了用h估计$\mathbb E_{\mathcal T} [\cdot]$，也可以采用动量更新的方式
+  predictor h是对<img src="http://latex.codecogs.com/svg.latex?\mathbb&space;E_{\mathcal&space;T}[\mathcal&space;F_{\theta^t}(\mathcal&space;T(x))]" title="http://latex.codecogs.com/svg.latex?\mathbb E_{\mathcal T}[\mathcal F_{\theta^t}(\mathcal T(x))]" />的估计：
+
+  <img src="http://latex.codecogs.com/svg.latex?h^*(z_1)&space;=&space;\arg&space;\min_{h(z_1)}&space;\mathbb&space;E_z[||h(z_1)-z_2||_2^2]=\mathbb&space;E_z[z_2]=\mathbb&space;E_{\mathcal&space;T}[f(\mathcal&space;T(x))]" title="http://latex.codecogs.com/svg.latex?h^*(z_1) = \arg \min_{h(z_1)} \mathbb E_z[||h(z_1)-z_2||_2^2]=\mathbb E_z[z_2]=\mathbb E_{\mathcal T}[f(\mathcal T(x))]" />
+
+  在单步优化中,<img src="http://latex.codecogs.com/svg.latex?\mathbb&space;E_{\mathcal&space;T}&space;[\cdot]" title="http://latex.codecogs.com/svg.latex?\mathbb E_{\mathcal T} [\cdot]" />被忽略了，h视为对其的估计(Expectation over augmentations)，除了用h估计<img src="http://latex.codecogs.com/svg.latex?\mathbb&space;E_{\mathcal&space;T}&space;[\cdot]" title="http://latex.codecogs.com/svg.latex?\mathbb E_{\mathcal T} [\cdot]" />，也可以采用动量更新的方式
 
 - Symmetrization
 
-​	Actually, the SGD optimizer computes the empirical expectation of $\mathbb E_{x, \mathcal T}[\cdot]$ by sampling a batch of images and one pair of augmentations $(\mathcal T_1, \mathcal T_2)$. In principle, the empirical expectation should be more precise with **denser sampling**,Symmetrization supplies an extra pair  $(\mathcal T_2, \mathcal T_2)$ This explains that symmetrization is **not necessary** for our method to work, yet it is able to improve accuracy
+  Actually, the SGD optimizer computes the empirical expectation of <img src="http://latex.codecogs.com/svg.latex?\mathbb&space;E_{x,&space;\mathcal&space;T}[\cdot]" title="http://latex.codecogs.com/svg.latex?\mathbb E_{x, \mathcal T}[\cdot]" /> by sampling a batch of images and one pair of augmentations <img src="http://latex.codecogs.com/svg.latex?(\mathcal&space;T_1,&space;\mathcal&space;T_2)" title="http://latex.codecogs.com/svg.latex?(\mathcal T_1, \mathcal T_2)" />. In principle, the empirical expectation should be more precise with **denser sampling**,Symmetrization supplies an extra pair  <img src="http://latex.codecogs.com/svg.latex?(\mathcal&space;T_2,&space;\mathcal&space;T_1)" title="http://latex.codecogs.com/svg.latex?(\mathcal T_2, \mathcal T_1)" /> This explains that symmetrization is **not necessary** for our method to work, yet it is able to improve accuracy
 
 
 
