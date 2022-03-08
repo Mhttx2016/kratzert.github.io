@@ -1,4 +1,4 @@
-# Visual Self-supervised Learning-Contrastive Learning
+# Visual Self-supervised Learning(Contrastive Learning)
 
 
 ## With negative examples (Contrastive method)
