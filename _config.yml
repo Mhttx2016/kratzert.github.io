@@ -26,7 +26,7 @@ description: Mhttx's Blog
 navbar-links:
   Home: "https://mhttx2016.github.io"
   Open Learning: "openlearning"
-  Projects: "projects"
+#   Projects: "projects"
 #   About Me: "aboutme"
   
 #  Resources:
